@@ -12,8 +12,8 @@ namespace TZ.Ground
 
         private void Start()
         {
-            Time.timeScale = 2f;
-            InvokeRepeating("RespawnGround", 5, 6);
+            Time.timeScale = 1.5f;
+            InvokeRepeating("RespawnGround", 3, 4);
         }
 
         public void RespawnGround()

@@ -5,7 +5,7 @@ namespace TZ.Control
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] FloatingJoystick joystick = null;
-        [SerializeField] float speed = 20f;
+        [SerializeField] float speed = 5f;
         int border = 2;
         Vector2 moveInput;
         bool isStopped = false;
