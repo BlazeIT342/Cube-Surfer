@@ -8,7 +8,7 @@ namespace TZ.Control
         [SerializeField] float speed = 5f;
         int border = 2;
         Vector2 moveInput;
-        bool isStopped = false;
+        bool isStopped = true;
 
         private void Update()
         {
@@ -33,6 +33,11 @@ namespace TZ.Control
         {
             if (!isStopped) return true;
             else return false;
+        }
+
+        public void SetIsStopped(bool isStopped)
+        {
+            this.isStopped = isStopped;
         }
     }
 }

@@ -12,6 +12,7 @@ public class Cube : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (firstCube)
             {
+                FindObjectOfType<Menu>().GameOver();
                 player.GetComponent<PlayerController>().GameOver();
                 return;
             }
