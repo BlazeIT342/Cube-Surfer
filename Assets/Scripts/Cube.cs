@@ -1,4 +1,5 @@
 using TZ.Control;
+using TZ.Ground;
 using UnityEngine;
 
 public class Cube : MonoBehaviour
@@ -17,6 +18,7 @@ public class Cube : MonoBehaviour
                 return;
             }
             player.GetComponentInChildren<CubeHolder>().RemoveCube(this);
+            FindObjectOfType<GroundMoover>().RespawnGround();
         }
         if (collision.gameObject.CompareTag("CubePickup"))
         {

@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
     {
         startMenu.SetActive(true);
         endMenu.SetActive(false);
+        Time.timeScale = 1.5f;
     }
 
     private void Update()
@@ -22,7 +23,6 @@ public class Menu : MonoBehaviour
             firstTouch = true;
             startMenu.SetActive(false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().SetIsStopped(false);
-            FindObjectOfType<GroundMoover>().StartRespawningGround();
         }
     }
 

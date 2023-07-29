@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TZ.Control;
 using UnityEngine;
@@ -9,10 +10,12 @@ namespace TZ.Ground
         [SerializeField] int distanceToNextGround = 30;
         [SerializeField] List<GameObject> groundPrefabs = new List<GameObject>();
         [SerializeField] List<GameObject> grounds = new List<GameObject>();
+        bool readyToSpawn = true;
 
         public void RespawnGround()
         {
-            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetGameStatus()) return;
+            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetGameStatus() || !readyToSpawn) return;
+            StartCoroutine(RespawnCooldown());
             Destroy(grounds[0]);
             grounds.RemoveAt(0);
             GameObject newGround = Instantiate(groundPrefabs[Random.Range(0, groundPrefabs.Count)], transform.position, Quaternion.identity, transform);
@@ -20,10 +23,11 @@ namespace TZ.Ground
             grounds.Add(newGround);    
         }
 
-        public void StartRespawningGround()
+        private IEnumerator RespawnCooldown()
         {
-            Time.timeScale = 1.5f;
-            InvokeRepeating("RespawnGround", 3, 4);
+            readyToSpawn = false;
+            yield return new WaitForSecondsRealtime(1);
+            readyToSpawn = true;
         }
     }
 }
