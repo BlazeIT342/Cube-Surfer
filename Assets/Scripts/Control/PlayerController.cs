@@ -1,5 +1,3 @@
-using System.Collections;
-using TZ.Ground;
 using UnityEngine;
 
 namespace TZ.Control
@@ -9,11 +7,12 @@ namespace TZ.Control
         [SerializeField] FloatingJoystick joystick = null;
         [SerializeField] float speed = 20f;
         int border = 2;
-        bool collided = false;
         Vector2 moveInput;
+        bool isStopped = false;
 
         private void Update()
         {
+            if (isStopped) return;
             PlayerMovement();
         }
 
@@ -25,20 +24,15 @@ namespace TZ.Control
             transform.Translate(-moveInput.normalized * speed * Time.deltaTime);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        public void GameOver()
         {
-            if (!collided && collision.gameObject.CompareTag("Wall"))
-            {
-                collision.gameObject.GetComponentInParent<GroundMoover>().RespawnGround();
-                StartCoroutine(CollisionTimer());
-            }
+            isStopped = true;
         }
 
-        private IEnumerator CollisionTimer()
+        public bool GetGameStatus()
         {
-            collided = true;
-            yield return new WaitForSecondsRealtime(1);
-            collided = false;
+            if (!isStopped) return true;
+            else return false;
         }
     }
 }
