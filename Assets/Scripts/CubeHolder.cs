@@ -12,7 +12,7 @@ public class CubeHolder : MonoBehaviour
 
     public void AddCube()
     {
-        transform.position += new Vector3 (0, 1, 0);
+        transform.position += new Vector3 (0, 1f, 0);
         Cube cubeInstance = Instantiate(cubePrefab, cubeHolderTransform);
         cubeInstance.transform.position = new Vector3(cubeList[0].transform.position.x, cubeList[cubeList.Count - 1].transform.position.y - 1, cubeList[0].transform.position.z);
         GameObject textInstance = Instantiate(collectText, transform);
