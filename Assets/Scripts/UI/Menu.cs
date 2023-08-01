@@ -6,7 +6,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject endMenu;
-    bool firstTouch = false;
+    bool isFirstTouch = false;
 
     private void OnEnable()
     {
@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
     private void OnGameStart(bool isGameRunning)
     {
         Time.timeScale = 1.5f;
-        firstTouch = true;
+        isFirstTouch = true;
         startMenu.SetActive(false);
     }
 
@@ -42,7 +42,7 @@ public class Menu : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.touchCount > 0 && !firstTouch)
+        if (Input.touchCount > 0 && !isFirstTouch)
         {
             GameEventManager.instance.StartGame();
         }

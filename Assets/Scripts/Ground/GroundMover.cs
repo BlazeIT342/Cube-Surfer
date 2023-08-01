@@ -10,7 +10,7 @@ namespace TZ.Ground
         [SerializeField] int distanceToNextGround = 30;
         [SerializeField] List<GameObject> groundPrefabs = new List<GameObject>();
         [SerializeField] List<GameObject> grounds = new List<GameObject>();
-        bool readyToSpawn = true;
+        bool isReadyToRespawn = true;
 
         private void OnEnable()
         {
@@ -28,7 +28,7 @@ namespace TZ.Ground
         }
         public void RespawnGround(bool isGameRunning)
         {          
-            if (!isGameRunning || !readyToSpawn) return;
+            if (!isGameRunning || !isReadyToRespawn) return;
             StartCoroutine(RespawnCooldown());
             Destroy(grounds[0]);
             grounds.RemoveAt(0);
@@ -39,9 +39,9 @@ namespace TZ.Ground
 
         private IEnumerator RespawnCooldown()
         {
-            readyToSpawn = false;
+            isReadyToRespawn = false;
             yield return new WaitForSecondsRealtime(1);
-            readyToSpawn = true;
+            isReadyToRespawn = true;
         }
     }
 }
