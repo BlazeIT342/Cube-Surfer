@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 3834178597318572405, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27
+      value: -0.177
       objectReference: {fileID: 0}
     - target: {fileID: 3834178597318572405, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 4242633074397290605, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4468469722275651280, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
@@ -100,12 +100,12 @@ PrefabInstance:
     - target: {fileID: 6816096770773916267, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6978182891409962003, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27
+      value: -0.125
       objectReference: {fileID: 0}
     - target: {fileID: 6978182891409962003, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 8090095727339158923, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27
+      value: 0.038
       objectReference: {fileID: 0}
     - target: {fileID: 8090095727339158923, guid: 7ca2345ba78647d469f91a6f3e3c0746,
         type: 3}
@@ -196,26 +196,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4037740342446871282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3760181759817258397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fb3eb29eeebd04d87475bbfb984a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  createMultiMaterialMesh: 0
-  combineInactiveChildren: 0
-  deactivateCombinedChildren: 1
-  deactivateCombinedChildrenMeshRenderers: 0
-  generateUVMap: 0
-  destroyCombinedChildren: 0
-  folderPath: Prefabs/CombinedMeshes
-  meshFiltersToSkip: []
 --- !u!1001 &1340208550629600372
 PrefabInstance:
   m_ObjectHideFlags: 0

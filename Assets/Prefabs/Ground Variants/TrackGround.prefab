@@ -167,22 +167,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2877396918168583229, guid: a64b8b1e476fff84ba325b51c5ff9647,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4415187067852063262, guid: a64b8b1e476fff84ba325b51c5ff9647,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6427369587168524312, guid: a64b8b1e476fff84ba325b51c5ff9647,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7190883495394759490, guid: a64b8b1e476fff84ba325b51c5ff9647,
         type: 3}
       propertyPath: m_Name
       value: TrackGround
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5478872282505531121, guid: a64b8b1e476fff84ba325b51c5ff9647, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a64b8b1e476fff84ba325b51c5ff9647, type: 3}
 --- !u!4 &8113777959277972467 stripped
 Transform:

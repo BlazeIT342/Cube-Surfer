@@ -1,24 +1,33 @@
+using System.Collections;
 using System.Collections.Generic;
-using TZ.Control;
 using UnityEngine;
 
 public class CubeHolder : MonoBehaviour
 {
-    [SerializeField] ParticleSystem cubeEffect = null;
-    [SerializeField] Cube cubePrefab = null;
-    [SerializeField] GameObject collectText = null;
-    [SerializeField] Transform cubeHolderTransform = null;
-    [SerializeField] Transform collectTextTransform = null;
+    [SerializeField] ParticleSystem cubeEffect;
+    [SerializeField] Cube cubePrefab;
+    [SerializeField] GameObject collectText;
+    [SerializeField] Transform cubeHolderTransform;
+    [SerializeField] Transform collectTextTransform;
+    [SerializeField] Transform cubeRemoverTransform;
     [SerializeField] List<Cube> cubeList = new List<Cube>();
+    bool isGameRunning = true;
 
     private void OnEnable()
     {
         GameEventManager.instance.onAddNewCube.AddListener(OnAddNewCube);
+        GameEventManager.instance.onGameEnd.AddListener(OnGameEnd);
     }
 
     private void OnDisable()
     {
         GameEventManager.instance.onAddNewCube.RemoveListener(OnAddNewCube);
+        GameEventManager.instance.onGameEnd.RemoveListener(OnGameEnd);
+    }
+
+    private void OnGameEnd(bool isGameRunning)
+    {
+        this.isGameRunning = isGameRunning;
     }
 
     private void OnAddNewCube(bool isGameRunning)
@@ -33,10 +42,11 @@ public class CubeHolder : MonoBehaviour
         cubeList.Add(cubeInstance);
     }
 
-    public void RemoveCube(Cube cube)
+    public IEnumerator RemoveCube(Cube cube)
     {
-        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetGameStatus()) return;
-        cube.transform.SetParent(GameObject.FindGameObjectWithTag("Respawn").transform);
+        cube.transform.SetParent(cubeRemoverTransform);
+        yield return new WaitForSecondsRealtime(2);
+        if (!isGameRunning) yield break;
         cubeList.Remove(cube);
         Destroy(cube.gameObject, 2f);
     }

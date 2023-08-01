@@ -4,12 +4,15 @@ namespace TZ.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] FloatingJoystick joystick = null;
-        [SerializeField] GameObject playerBody = null;
+        [SerializeField] FloatingJoystick joystick;
+        [SerializeField] GameObject playerBody;
+        [SerializeField] GameObject playerRagdoll;
+        [SerializeField] GameObject playerObject;
+        [SerializeField] TrailRenderer trailRenderer;
         [SerializeField] float speed = 5f;
+        private bool isGameRunning;
         int border = 2;
-        Vector2 moveInput;
-        bool isStopped = true;
+        float moveInputHorizontal;
 
         private void OnEnable()
         {
@@ -25,32 +28,42 @@ namespace TZ.Control
 
         private void OnGameStart(bool isGameRunning)
         {
-            isStopped = false;
+            this.isGameRunning = isGameRunning;
         }
 
         private void OnGameEnd(bool isGameRunning)
         {
-            isStopped = true;
+            this.isGameRunning = isGameRunning;
+            RagdollAnimation();
+            TrailAnimation();
         }
 
         private void Update()
         {
-            if (isStopped) return;
+            if (!isGameRunning) return;
             PlayerMovement();
+
         }
 
         private void PlayerMovement()
         {
             playerBody.transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            moveInput = new Vector2(joystick.Horizontal, 0);
-            if ((transform.position.x <= -border && moveInput.x < 0) || (transform.position.x >= border && moveInput.x > 0)) return;
-            transform.Translate(-moveInput.normalized * speed * Time.deltaTime);
+            moveInputHorizontal = joystick.Horizontal * border;
+            //if ((transform.position.x <= -border && moveInputHorizontal < 0) || (transform.position.x >= border && moveInputHorizontal > 0)) return;
+            transform.position = new Vector3(moveInputHorizontal, transform.position.y, transform.position.z);
         }
 
-        public bool GetGameStatus()
+        private void RagdollAnimation()
         {
-            if (!isStopped) return true;
-            else return false;
+            playerObject.GetComponent<Rigidbody>().mass = 1.0f;
+            playerObject.GetComponent<Animator>().enabled = false;
+            playerRagdoll.SetActive(true);
+            playerObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000, ForceMode.Impulse);
+        }
+
+        private void TrailAnimation()
+        {
+            trailRenderer.time = 100;
         }
     }
 }

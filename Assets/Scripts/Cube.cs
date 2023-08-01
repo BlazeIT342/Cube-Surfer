@@ -7,9 +7,8 @@ public class Cube : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             GameEventManager.instance.CollisionWall();
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-            player.GetComponentInChildren<CubeHolder>().RemoveCube(this);          
+            StartCoroutine(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CubeHolder>().RemoveCube(this));          
         }
         if (collision.gameObject.CompareTag("CubePickup"))
         {
