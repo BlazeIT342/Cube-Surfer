@@ -4,7 +4,7 @@ namespace TZ.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] FloatingJoystick joystick;
+        [SerializeField] DynamicJoystick joystick;
         [SerializeField] GameObject playerBody;
         [SerializeField] GameObject playerRagdoll;
         [SerializeField] GameObject playerObject;
@@ -49,7 +49,6 @@ namespace TZ.Control
         {
             playerBody.transform.Translate(Vector3.forward * speed * Time.deltaTime);
             moveInputHorizontal = joystick.Horizontal * border;
-            //if ((transform.position.x <= -border && moveInputHorizontal < 0) || (transform.position.x >= border && moveInputHorizontal > 0)) return;
             transform.position = new Vector3(moveInputHorizontal, transform.position.y, transform.position.z);
         }
 

@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour
     {
         startMenu.SetActive(true);
         endMenu.SetActive(false);
-        Time.timeScale = 1.5f;
+        Time.timeScale = 0.1f;
         Application.targetFrameRate = 60;
     }
 
