@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using TZ.EventController;
+using UnityEngine;
 
-namespace Assets.Scripts
+namespace TZ.Core
 {
     public class GameOver : MonoBehaviour
     {

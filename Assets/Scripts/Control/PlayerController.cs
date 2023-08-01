@@ -1,3 +1,4 @@
+using TZ.EventController;
 using UnityEngine;
 
 namespace TZ.Control
