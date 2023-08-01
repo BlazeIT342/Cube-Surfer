@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TZ.Control;
 using UnityEngine;
 
 namespace TZ.Ground
@@ -12,9 +11,23 @@ namespace TZ.Ground
         [SerializeField] List<GameObject> grounds = new List<GameObject>();
         bool readyToSpawn = true;
 
-        public void RespawnGround()
+        private void OnEnable()
         {
-            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetGameStatus() || !readyToSpawn) return;
+            GameEventManager.instance.onCollisionWall.AddListener(OnCollisionWall);
+        }
+
+        private void OnDisable()
+        {
+            GameEventManager.instance.onCollisionWall.RemoveListener(OnCollisionWall);
+        }
+
+        private void OnCollisionWall(bool isGameRunning)
+        {
+            RespawnGround(isGameRunning);
+        }
+        public void RespawnGround(bool isGameRunning)
+        {          
+            if (!isGameRunning || !readyToSpawn) return;
             StartCoroutine(RespawnCooldown());
             Destroy(grounds[0]);
             grounds.RemoveAt(0);

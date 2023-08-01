@@ -3,11 +3,34 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    private CinemachineVirtualCamera virtualCamera;
-    private float shakeAmplitude = 2f;
-    private float shakeFrequency = 3.0f;
+    CinemachineVirtualCamera virtualCamera;
+    float shakeAmplitude = 2f;
+    float shakeFrequency = 3.0f;
 
-    private float shakeElapsedTime = 0f;
+    float shakeElapsedTime = 0f;
+    float duration = 0.2f;
+
+    private void OnEnable()
+    {
+        GameEventManager.instance.onAddNewCube.AddListener(OnAddNewCube);
+        GameEventManager.instance.onCollisionWall.AddListener(OnCollisionWall);
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.instance.onAddNewCube.RemoveListener(OnAddNewCube);
+        GameEventManager.instance.onCollisionWall.RemoveListener(OnCollisionWall);
+    }
+
+    private void OnAddNewCube(bool isGameRunning)
+    {
+        ShakeCamera(duration);
+    }
+
+    private void OnCollisionWall(bool isGameRunning)
+    {
+        ShakeCamera(duration);
+    }
 
     private void Start()
     {

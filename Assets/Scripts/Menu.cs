@@ -1,4 +1,3 @@
-using TZ.Control;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +7,30 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject endMenu;
     bool firstTouch = false;
 
+    private void OnEnable()
+    {
+        GameEventManager.instance.onGameStart.AddListener(OnGameStart);
+        GameEventManager.instance.onGameEnd.AddListener(OnGameEnd);
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.instance.onGameStart.RemoveListener(OnGameStart);
+        GameEventManager.instance.onGameEnd.RemoveListener(OnGameEnd);
+    }
+
+    private void OnGameStart(bool isGameRunning)
+    {
+        firstTouch = true;
+        startMenu.SetActive(false);
+    }
+
+    private void OnGameEnd(bool isGameRunning)
+    {
+        endMenu.SetActive(true);
+        Time.timeScale = 1.0f;
+    }
+
     private void Awake()
     {
         startMenu.SetActive(true);
@@ -16,22 +39,12 @@ public class Menu : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.touchCount > 0 && !firstTouch)
         {
-            firstTouch = true;
-            startMenu.SetActive(false);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().SetIsStopped(false);
-            GameObject.FindGameObjectWithTag("Core").GetComponent<Mover>().SetIsStopped(false);
+            GameEventManager.instance.StartGame();
         }
-    }
-
-    public void GameOver()
-    {
-        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<RagdollController>().DieAction();
-        endMenu.SetActive(true);
-        Time.timeScale = 1.0f;
     }
 
     public void ReloadScene()

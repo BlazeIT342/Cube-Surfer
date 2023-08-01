@@ -8,17 +8,28 @@ public class CubeHolder : MonoBehaviour
     [SerializeField] Cube cubePrefab = null;
     [SerializeField] GameObject collectText = null;
     [SerializeField] Transform cubeHolderTransform = null;
+    [SerializeField] Transform collectTextTransform = null;
     [SerializeField] List<Cube> cubeList = new List<Cube>();
 
-    public void AddCube()
+    private void OnEnable()
     {
-        transform.position += new Vector3 (0, 1f, 0);
+        GameEventManager.instance.onAddNewCube.AddListener(OnAddNewCube);
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.instance.onAddNewCube.RemoveListener(OnAddNewCube);
+    }
+
+    private void OnAddNewCube(bool isGameRunning)
+    {
+        transform.position += new Vector3(0, 1f, 0);
         Cube cubeInstance = Instantiate(cubePrefab, cubeHolderTransform);
         cubeInstance.transform.position = new Vector3(cubeList[0].transform.position.x, cubeList[cubeList.Count - 1].transform.position.y - 1, cubeList[0].transform.position.z);
-        GameObject textInstance = Instantiate(collectText, transform);
-        cubeEffect.Play();  
+        GameObject textInstance = Instantiate(collectText, collectTextTransform);
+        cubeEffect.Play();
         GetComponentInChildren<Animator>().SetTrigger("Jump");
-        Destroy(textInstance,5f);
+        Destroy(textInstance, 5f);
         cubeList.Add(cubeInstance);
     }
 

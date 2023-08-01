@@ -2,11 +2,20 @@ using UnityEngine;
 
 public class RagdollController : MonoBehaviour
 {
-    [SerializeField] GameObject playerBody;
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerRagdol;
 
-    public void DieAction()
+    private void OnEnable()
+    {
+        GameEventManager.instance.onGameEnd.AddListener(OnGameEnd);
+    }
+
+    private void OnDisable()
+    {
+        GameEventManager.instance.onGameEnd.RemoveListener(OnGameEnd);
+    }
+
+    private void OnGameEnd(bool isGameRunning)
     {
         player.GetComponent<Rigidbody>().mass = 1.0f;
         player.GetComponent<Animator>().enabled = false;

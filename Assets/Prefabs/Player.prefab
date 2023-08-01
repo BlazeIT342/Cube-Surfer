@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
+  playerBody: {fileID: 0}
   speed: 7
 --- !u!1 &5456517761427396853
 GameObject:
@@ -401,7 +402,6 @@ Transform:
   m_Children:
   - {fileID: 832749218672296684}
   - {fileID: 2410733533148739645}
-  - {fileID: 253324237799746687}
   m_Father: {fileID: 2076399478334519667}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -436,6 +436,7 @@ MonoBehaviour:
   collectText: {fileID: 4683143363298424030, guid: 3ef35a97927357446a3d99266bdb0282,
     type: 3}
   cubeHolderTransform: {fileID: 2410733533148739645}
+  collectTextTransform: {fileID: 0}
   cubeList:
   - {fileID: 4696277299088575867}
 --- !u!54 &245637406
@@ -478,7 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0dafbd09c2c3542b5fa22d856c098e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 5456517761427396853}
   player: {fileID: 832749218672533134}
   playerRagdol: {fileID: 832749218672533124}
 --- !u!1001 &439021175
@@ -486,7 +486,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5608149221253882563}
+    m_TransformParent: {fileID: 832749218672296684}
     m_Modifications:
     - target: {fileID: 253324237615365148, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
@@ -536,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
         type: 3}
@@ -558,12 +558,6 @@ PrefabInstance:
 --- !u!198 &253324237784584811 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 253324237615365148, guid: b6c0b1506426c6842aef80fad4e5bb5e,
-    type: 3}
-  m_PrefabInstance: {fileID: 439021175}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &253324237799746687 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 253324237633618440, guid: b6c0b1506426c6842aef80fad4e5bb5e,
     type: 3}
   m_PrefabInstance: {fileID: 439021175}
   m_PrefabAsset: {fileID: 0}

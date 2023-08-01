@@ -1,5 +1,4 @@
-﻿using TZ.Control;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -9,9 +8,7 @@ namespace Assets.Scripts
         {
             if (collision.gameObject.CompareTag("Wall"))
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().SetIsStopped(true);
-                GameObject.FindGameObjectWithTag("Core").GetComponent<Mover>().SetIsStopped(true);
-                return;
+                GameEventManager.instance.EndGame();
             }
         }
     }
