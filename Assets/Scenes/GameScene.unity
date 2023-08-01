@@ -341,24 +341,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &313458383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 832749218672533134, guid: d9ce45b6decb1724584923dfb9761356,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857475418}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &313458388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313458383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6fae961f1a0644cbbc327ddbe71661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &391071479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,38 +2023,6 @@ PrefabInstance:
       propertyPath: cubeRemoverTransform
       value: 
       objectReference: {fileID: 1931177383}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.120007
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.07157016
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.009394927
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.99103904
-      objectReference: {fileID: 0}
-    - target: {fileID: 362227223, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.11238815
-      objectReference: {fileID: 0}
-    - target: {fileID: 574417621, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: speed
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 574417621, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
       propertyPath: joystick
       value: 
@@ -2081,24 +2031,6 @@ PrefabInstance:
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 1467038091}
-    - target: {fileID: 574417621, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: smoothTime
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 574417621, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
-      propertyPath: joystickSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 253324237784584811, guid: d9ce45b6decb1724584923dfb9761356,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 253324237784584811, guid: d9ce45b6decb1724584923dfb9761356,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2076399478334519667, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_RootOrder
@@ -2159,8 +2091,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 245637399, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
 --- !u!1 &1931177382
 GameObject:
