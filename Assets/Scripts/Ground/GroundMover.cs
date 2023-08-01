@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TZ.Ground
 {
-    public class GroundMoover : MonoBehaviour
+    public class GroundMover : MonoBehaviour
     {
         [SerializeField] int distanceToNextGround = 30;
         [SerializeField] List<GameObject> groundPrefabs = new List<GameObject>();
