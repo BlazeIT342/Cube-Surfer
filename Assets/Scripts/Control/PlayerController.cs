@@ -10,7 +10,7 @@ namespace TZ.Control
         [SerializeField] GameObject playerRagdoll;
         [SerializeField] GameObject playerObject;
         [SerializeField] TrailRenderer trailRenderer;
-        [SerializeField] float speed = 5f;
+        [SerializeField] float speed = 8f;
         private bool isGameRunning;
         int border = 2;
         float moveInputHorizontal;
