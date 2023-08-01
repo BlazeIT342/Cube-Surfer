@@ -9,6 +9,7 @@ TagManager:
   - CubePickup
   - Core
   - VirtualCamera
+  - Menu
   layers:
   - Default
   - TransparentFX
