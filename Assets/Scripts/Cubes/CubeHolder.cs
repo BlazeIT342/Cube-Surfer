@@ -35,7 +35,7 @@ namespace TZ.Cubes
 
         private void OnAddNewCube(bool isGameRunning)
         {
-            transform.position += new Vector3(0, 1f, 0);
+            transform.position += Vector3.up;
             Cube cubeInstance = Instantiate(cubePrefab, cubeHolderTransform);
             cubeInstance.transform.position = new Vector3(cubeList[0].transform.position.x, cubeList[cubeList.Count - 1].transform.position.y - 1, cubeList[0].transform.position.z);
             GameObject textInstance = Instantiate(collectText, collectTextTransform);
