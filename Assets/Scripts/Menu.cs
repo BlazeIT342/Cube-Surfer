@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
 
     private void OnGameStart(bool isGameRunning)
     {
+        Time.timeScale = 1.5f;
         firstTouch = true;
         startMenu.SetActive(false);
     }
@@ -35,7 +36,6 @@ public class Menu : MonoBehaviour
     {
         startMenu.SetActive(true);
         endMenu.SetActive(false);
-        Time.timeScale = 0.1f;
         Application.targetFrameRate = 60;
     }
 
