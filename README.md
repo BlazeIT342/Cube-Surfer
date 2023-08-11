@@ -11,4 +11,4 @@ It was easy to come up with main mechanics, but **code structuring** and **fixin
 To do this project I used all my skills in **code structuring**. Also I used a **Ragdoll** for the die animation.
 
 ## Final Result
-<gif src = "Assets/Asset Packs/Media/VideoGameplay.gif"> </gif>
+<img src = "Assets/Asset Packs/Media/VideoGameplay.gif"> </img>
